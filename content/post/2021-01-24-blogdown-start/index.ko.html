@@ -1,0 +1,122 @@
+---
+title: '[blogdown] 블로그 생성 및 초기 설정'
+author: beanbeantree
+date: '2021-01-24'
+slug: blogdown-start
+categories:
+  - R
+  - blogdown
+tags:
+  - blogdown
+keywords:
+  - R
+  - blogdown
+  - hugo
+  - tranquilpeak
+output:
+  blogdown::html_page:
+    toc: yes
+description: 'blogdown을 사용하여 웹 사이트를 생성하고, Netlify를 이용하여 배포하는 방법에 대한 포스트입니다. 사용된 테마는 Tranquilpeak입니다.'
+---
+
+<script src="{{< blogdown/postref >}}index.ko_files/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#블로그-생성">블로그 생성</a>
+<ul>
+<li><a href="#r-project-만들기">R project 만들기</a></li>
+<li><a href="#패키지-설치">패키지 설치</a></li>
+<li><a href="#웹-사이트-생성">웹 사이트 생성</a></li>
+<li><a href="#git-bash를-이용하여-github에-push">Git Bash를 이용하여 Github에 push</a></li>
+</ul></li>
+<li><a href="#초기-설정">초기 설정</a>
+<ul>
+<li><a href="#구성파일config.toml-변경">구성파일(<code>config.toml</code>) 변경</a></li>
+<li><a href="#수식-입력-설정">수식 입력 설정</a></li>
+<li><a href="#폰트-변경">폰트 변경</a></li>
+<li><a href="#disqus">disQus</a></li>
+</ul></li>
+<li><a href="#수정된-내용-push">수정된 내용 push</a></li>
+<li><a href="#배포deployment">배포(Deployment)</a></li>
+</ul>
+</div>
+
+<div id="블로그-생성" class="section level1">
+<h1>블로그 생성</h1>
+<div id="r-project-만들기" class="section level2">
+<h2>R project 만들기</h2>
+<p><a href="https://mrchypark.github.io/post/github-rstudio%EB%A1%9C-github-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/">이곳</a>을 참고하여 <code>Github</code>의 원격 저장소(Remote Repository)와 연결된 R Project를 만듭니다.</p>
+</div>
+<div id="패키지-설치" class="section level2">
+<h2>패키지 설치</h2>
+<pre class="r"><code>install.packages(&quot;blogdown&quot;, dependencies = TRUE)
+blogdown::install_hugo()</code></pre>
+<p><code>blogdown</code>패키지 및 <code>HUGO</code>를 설치합니다.</p>
+</div>
+<div id="웹-사이트-생성" class="section level2">
+<h2>웹 사이트 생성</h2>
+<pre class="r"><code>blogdown::new_site(theme = &quot;kakawait/hugo-tranquilpeak-theme&quot;,
+                   format = &quot;toml&quot;)</code></pre>
+<p><code>blogdown:new_site()</code>와의 차이점은 아래와 같습니다.</p>
+<ul>
+<li>theme
+<ul>
+<li>default: <code>theme = "yihui/hugo-lithium"</code><br />
+</li>
+<li>변경 후: <code>kakawait/hugo-tranquilpeak-theme</code><br />
+</li>
+<li>해당 테마에 관한 정보는 <a href="https://themes.gohugo.io/hugo-tranquilpeak-theme/">이곳</a>에서 확인할 수 있습니다.<br />
+</li>
+</ul></li>
+<li>format
+<ul>
+<li>default: <code>format = "yaml"</code><br />
+</li>
+<li>변경 후: <code>format = "toml"</code><br />
+</li>
+<li>우리가 선택한 테마의 구성(configuration)파일의 형식은
+<a href="https://github.com/toml-lang/toml">TOML</a>입니다.
+예제사이트와 구성파일의 형식을 일치시키기 위해 기본값을 변경했습니다.</li>
+</ul></li>
+</ul>
+</div>
+<div id="git-bash를-이용하여-github에-push" class="section level2">
+<h2>Git Bash를 이용하여 Github에 push</h2>
+<pre class="bash"><code># Git Bash에서 실행
+# rm -rf public // public 폴더를 삭제합니다.
+git add .
+git commit -m &quot;new-site&quot;
+git push origin main</code></pre>
+<p>R studio에서 제공하는 Git GUI를 이용하여 Git을 동작하면 R studio가 멈추는 현상이 나타납니다. 기본 테마의 경우 이런 문제가 발생하지 않으나 테마를 변경하여 사이트를 생성하면 이와 같은 문제가 나타나는 것으로 보입니다. 그 대신 Git 설치 시 따라오는 Git Bash를 이용하여 ’stage -&gt; commit -&gt; push’를 수행합니다. R studio의 기본 터미널을 Git Bash로 변경하면 디렉토리를 변경할 필요가 없어 좀 더 편리하게 명령어를 입력하실 수 있습니다.</p>
+</div>
+</div>
+<div id="초기-설정" class="section level1">
+<h1>초기 설정</h1>
+<div id="구성파일config.toml-변경" class="section level2">
+<h2>구성파일(<code>config.toml</code>) 변경</h2>
+</div>
+<div id="수식-입력-설정" class="section level2">
+<h2>수식 입력 설정</h2>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css&quot; integrity=&quot;sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X&quot; crossorigin=&quot;anonymous&quot;&gt;
+&lt;script defer src=&quot;https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js&quot; integrity=&quot;sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script defer src=&quot;https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js&quot; integrity=&quot;sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa&quot; crossorigin=&quot;anonymous&quot;
+    onload=&quot;renderMathInElement(document.body);&quot;&gt;&lt;/script&gt;</code></pre>
+</div>
+<div id="폰트-변경" class="section level2">
+<h2>폰트 변경</h2>
+<p><a href="https://nodejs.org/dist/latest-v8.x/node-v8.17.0-x64.msi">node-v8.17.0-x64.msi</a></p>
+<pre><code>cd ./themes/hugo-tranquilpeak-theme
+npm install
+npm run prod</code></pre>
+</div>
+<div id="disqus" class="section level2">
+<h2>disQus</h2>
+</div>
+</div>
+<div id="수정된-내용-push" class="section level1">
+<h1>수정된 내용 push</h1>
+</div>
+<div id="배포deployment" class="section level1">
+<h1>배포(Deployment)</h1>
+</div>

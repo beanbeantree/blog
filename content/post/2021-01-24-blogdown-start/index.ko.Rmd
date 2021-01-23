@@ -1,0 +1,92 @@
+---
+title: '[blogdown] 블로그 생성 및 초기 설정'
+author: beanbeantree
+date: '2021-01-24'
+slug: blogdown-start
+categories:
+  - R
+  - blogdown
+tags:
+  - blogdown
+keywords:
+  - R
+  - blogdown
+  - hugo
+  - tranquilpeak
+output:
+  blogdown::html_page:
+    toc: yes
+description: 'blogdown을 사용하여 웹 사이트를 생성하고, Netlify를 이용하여 배포하는 방법에 대한 포스트입니다. 사용된 테마는 Tranquilpeak입니다.'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+# 블로그 생성
+
+## R project 만들기
+[이곳](https://mrchypark.github.io/post/github-rstudio%EB%A1%9C-github-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/)을 참고하여 `Github`의 원격 저장소(Remote Repository)와 연결된 R Project를 만듭니다.
+
+## 패키지 설치
+```{r install, eval=FALSE}
+install.packages("blogdown", dependencies = TRUE)
+blogdown::install_hugo()
+```
+
+`blogdown`패키지 및 `HUGO`를 설치합니다.  
+
+## 웹 사이트 생성
+```{r new-site, eval=FALSE}
+blogdown::new_site(theme = "kakawait/hugo-tranquilpeak-theme",
+                   format = "toml")
+```
+
+`blogdown:new_site()`와의 차이점은 아래와 같습니다.
+
+* theme  
+   + default: `theme = "yihui/hugo-lithium"`  
+   + 변경 후: `kakawait/hugo-tranquilpeak-theme`  
+   + 해당 테마에 관한 정보는 [이곳](https://themes.gohugo.io/hugo-tranquilpeak-theme/)에서 확인할 수 있습니다.    
+* format  
+   + default: `format = "yaml"`  
+   + 변경 후: `format = "toml"`  
+   + 우리가 선택한 테마의 구성(configuration)파일의 형식은
+   [TOML](https://github.com/toml-lang/toml)입니다.
+   예제사이트와 구성파일의 형식을 일치시키기 위해 기본값을 변경했습니다.
+
+## Git Bash를 이용하여 Github에 push
+```{bash push, eval=FALSE}
+# Git Bash에서 실행
+# rm -rf public // public 폴더를 삭제합니다.
+git add .
+git commit -m "new-site"
+git push origin main
+```
+R studio에서 제공하는 Git GUI를 이용하여 Git을 동작하면 R studio가 멈추는 현상이 나타납니다. 기본 테마의 경우 이런 문제가 발생하지 않으나 테마를 변경하여 사이트를 생성하면 이와 같은 문제가 나타나는 것으로 보입니다. 그 대신 Git 설치 시 따라오는 Git Bash를 이용하여 'stage -> commit -> push'를 수행합니다. R studio의 기본 터미널을 Git Bash로 변경하면 디렉토리를 변경할 필요가 없어 좀 더 편리하게 명령어를 입력하실 수 있습니다.
+
+
+# 초기 설정
+
+## 구성파일(`config.toml`) 변경
+
+## 수식 입력 설정
+```
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+```
+
+## 폰트 변경
+[node-v8.17.0-x64.msi](https://nodejs.org/dist/latest-v8.x/node-v8.17.0-x64.msi)
+```
+cd ./themes/hugo-tranquilpeak-theme
+npm install
+npm run prod
+```
+
+## disQus
+
+# 수정된 내용 push
+
+# 배포(Deployment)
