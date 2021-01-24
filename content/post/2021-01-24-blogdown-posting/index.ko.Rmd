@@ -1,0 +1,46 @@
+---
+title: '[blogdown] 포스트 작성 및 관련 설정'
+author: beanbeantree
+date: '2021-01-24'
+slug: blogdown-posting
+categories:
+  - R
+  - blogdown
+tags: []
+keywords:
+  - R
+  - blogdown
+  - hugo
+  - tranquilpeak
+thumbnailImage: blogdown.png  
+output:
+  blogdown::html_page:
+    toc: yes
+    number_sections: yes
+description: 'blogdown을 이용해 포스트를 작성하는 방법과 포스트 작성에 유용한 설정'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# 포스트 작성
+
+# 관련 설정
+
+## Rprofile
+
+## 부제목
+[이곳](https://traceofpassion.github.io/2020/blog-making-08/)
+
+## archetype
+`./theme/hugo-tranquilpeak-theme`밑에 있는 `archetypes`폴더를 복사하여 루트 디렉토리에 붙여 넣음. 해당 폴더 하에 있는 `post.md`파일내에 아래와 같은 내용을 추가함.     
+```
+---
+output:
+  blogdown::html_page:
+    toc: yes
+    number_sections: yes
+description: ''
+---
+```

@@ -12,7 +12,8 @@ keywords:
 #thumbnailImage: //example.com/image.jpg
 output:
   blogdown::html_page:
-    toc: true  
+    toc: yes
+    number_sections: yes
 description: ''
 ---
 
