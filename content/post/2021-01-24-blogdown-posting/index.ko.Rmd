@@ -12,7 +12,7 @@ keywords:
   - blogdown
   - hugo
   - tranquilpeak
-thumbnailImage: blogdown.png  
+thumbnailImage: https://res.cloudinary.com/beanbeantree/image/upload/v1611452491/blogdown.png
 output:
   blogdown::html_page:
     toc: yes
