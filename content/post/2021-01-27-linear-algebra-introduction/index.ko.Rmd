@@ -1,5 +1,5 @@
 ---
-title: '[선형대수학] 00 소개'
+title: '[선형대수학] 소개'
 author: beanbeantree
 date: '2021-01-27'
 slug: linear-algebra-introduction
@@ -10,7 +10,7 @@ tags:
   - 선형대수학
 keywords:
   - tech
-thumbnailImage: //example.com/image.jpg
+thumbnailImage: https://res.cloudinary.com/beanbeantree/image/upload/v1611464423/1280px-Linear_subspaces_with_shading.svg_1_u0osss.png
 output:
   blogdown::html_page:
     toc: yes

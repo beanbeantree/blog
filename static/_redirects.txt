@@ -1,1 +1,0 @@
-http://beanbeantree.rbind.io/*    https://beanbeantree.rbind.io/:splat  301!

@@ -18,13 +18,14 @@ defaultContentLanguage = "ko"
 title = "beanbeantree's blog"
 theme = "hugo-tranquilpeak-theme"
 disqusShortname = "beanbeantree"
-# googleAnalytics = "UA-123-45"
+googleAnalytics = "UA-188261202-1"
 paginate = 7
 canonifyurls = true
 
 # 추가
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
 hasCJKLanguage = true
+enableRobotsTXT = true
 
 [permalinks]
   post = "/:slug/"
