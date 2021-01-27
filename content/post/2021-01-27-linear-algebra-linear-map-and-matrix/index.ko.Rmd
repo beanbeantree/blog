@@ -1,0 +1,43 @@
+---
+title: '[선형대수학] 선형함수와 행렬'
+author: beanbeantree
+date: '2021-01-27'
+slug: linear-algebra-linear-map-and-matrix
+categories:
+  - 수학
+  - 선형대수학
+tags:
+  - 선형대수학
+keywords:
+  - 선형대수학
+  - 연립방정식
+  - linear algebra
+  - systems of linear equations
+thumbnailImage: https://res.cloudinary.com/beanbeantree/image/upload/v1611464423/1280px-Linear_subspaces_with_shading.svg_1_u0osss.png
+output:
+  blogdown::html_page:
+    toc: yes
+    number_sections: yes
+description: '벡터공간간의 함수들 중 선형성(Linearity)이라 불리는 특별한 성질을 만족시키는 함수를 선형함수(Linear Map)라고 합니다. 이번 포스트에서는 선형함수와 선형함수를 나타내는 수단인 행렬을 배웁니다.'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# 함수의 정의
+
+# 선형사상
+
+## 선형사상의 정의
+
+## 선형사상의 예
+
+# 선형사상의 행렬 표현
+
+## $L: \mathbb{R}^2 \rightarrow \mathbb{R}^2$일 때
+
+## $L: \mathbb{R}^n \rightarrow \mathbb{R}^m$일 때
+
+## $L: V \rightarrow W$일 때
+

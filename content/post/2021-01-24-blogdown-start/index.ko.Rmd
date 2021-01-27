@@ -13,7 +13,7 @@ keywords:
   - blogdown
   - hugo
   - tranquilpeak
-thumbnailImage: https://res.cloudinary.com/beanbeantree/image/upload/c_thumb,w_100/v1611452491/blogdown.png
+thumbnailImage: https://res.cloudinary.com/beanbeantree/image/upload/v1611452491/blogdown.png
 output:
   blogdown::html_page:
     toc: yes
@@ -24,6 +24,7 @@ description: 'blogdown을 사용하여 웹 사이트를 생성하고, Netlify를
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(collapse = TRUE)
 ```
+
 # 블로그 생성
 
 ## R project 만들기

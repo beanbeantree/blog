@@ -1,0 +1,45 @@
+---
+title: '[선형대수학] 기저변환'
+author: beanbeantree
+date: '2021-01-24'
+slug: linear-algebra-change-of-basis
+categories:
+  - 수학
+  - 선형대수학
+tags:
+  - 선형대수학
+keywords:
+  - 선형대수학
+  - 연립방정식
+  - linear algebra
+  - systems of linear equations
+thumbnailImage: https://res.cloudinary.com/beanbeantree/image/upload/v1611464423/1280px-Linear_subspaces_with_shading.svg_1_u0osss.png
+output:
+  blogdown::html_page:
+    toc: yes
+    number_sections: yes
+description: '좌표변환 및 기저변환'
+---
+
+<script src="{{< blogdown/postref >}}index.ko_files/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#선형사상의-행렬-표현"><span class="toc-section-number">1</span> 선형사상의 행렬 표현</a></li>
+</ul>
+</div>
+
+<div id="선형사상의-행렬-표현" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> 선형사상의 행렬 표현</h1>
+<p><span class="math inline">\(L: V \rightarrow W\)</span>이 선형사상이고 <span class="math inline">\(V\)</span>와 <span class="math inline">\(W\)</span>의 기저를 각각 <span class="math inline">\(\beta = \{v_1, \ v_2, \cdots, \ v_n\}\)</span>, <span class="math inline">\(\gamma = \{w_1, \ w_2, \cdots, \ w_m\}\)</span>라 하자.
+<span class="math display">\[L(v_j)=\sum_{i=1}^ma_{ij}w_i\]</span></p>
+<p><span class="math display">\[
+\begin{align}
+v &amp;= x_1v_1 + x_2v_2 + \cdots + x_nv_n \\
+L(v) = w &amp;= y_1w_1 + y_1w_1 + \cdots + y_1w_1 \\
+L(v) &amp;= x_1L(v_1) + x_2V(v_2) + \cdots + x_nL(v_n) \\
+     &amp;=  x_1\sum_{i=1}^ma_{i1}w_i  + x_1\sum_{i=1}^ma_{i2}w_2  + \cdots + x_n\sum_{i=1}^ma_{in}w_i \\
+     &amp;= (a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n)w_1 + (a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n)w_2 + \cdots + (a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n)w_m
+\end{align}
+\]</span></p>
+</div>
