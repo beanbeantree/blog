@@ -1,5 +1,5 @@
 ---
-title: '[선형대수학] 선형함수와 행렬'
+title: '[선형대수학] 04강 선형함수와 행렬'
 author: beanbeantree
 date: '2021-01-27'
 slug: linear-algebra-linear-map-and-matrix
